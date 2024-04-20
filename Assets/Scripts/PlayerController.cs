@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
+        
     }
 
     private void Update()
