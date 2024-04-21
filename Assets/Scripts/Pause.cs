@@ -36,8 +36,8 @@ public class Pause : MonoBehaviour
         _scaledTime += Time.deltaTime;
         _unscaledTime += Time.unscaledDeltaTime;
 
-        _scaledTimer.text = "Scaled Time: " + _scaledTime.ToString("F2");
-        _unscaledTimer.text = "Unscaled Time: " + _unscaledTime.ToString("F2");
+        //_scaledTimer.text = "Scaled Time: " + _scaledTime.ToString("F2");
+       // _unscaledTimer.text = "Unscaled Time: " + _unscaledTime.ToString("F2");
     }
 
     public void PauseGame()

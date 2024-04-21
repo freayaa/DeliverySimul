@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &582351184 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3397809750105445352, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
+  m_PrefabInstance: {fileID: 799661116}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &799661116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -200,9 +211,25 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6352679575572224570, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
-      propertyPath: RotationSpeed
-      value: 500
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6352679575572224570, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
+      propertyPath: maxSensivity
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6352679575572224570, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
+      propertyPath: RotationSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6352679575572224570, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
+      propertyPath: mouseSensivity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6352679575572224570, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
+      propertyPath: sensivitySlider
+      value: 
+      objectReference: {fileID: 582351184}
     - target: {fileID: 6779546413932721836, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
       propertyPath: m_Name
       value: Player
@@ -312,7 +339,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2fbcea8aaac35b14ebf43ebb1aa73c0f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
