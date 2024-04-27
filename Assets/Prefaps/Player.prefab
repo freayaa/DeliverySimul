@@ -2106,6 +2106,7 @@ MonoBehaviour:
   gravity: 9.8
   jumpForce: 5
   Speed: 5
+  RunSpeed: 5
 --- !u!143 &5633425512429146261
 CharacterController:
   m_ObjectHideFlags: 0
