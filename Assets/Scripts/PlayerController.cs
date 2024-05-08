@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float Speed;
 
     public float RunSpeed;
+    public Animator animator;
 
     private float _fallVelocity = 0;
     private Vector3 _moveVector;
@@ -28,6 +29,8 @@ public class PlayerController : MonoBehaviour
     {
         _moveVector = Vector3.zero;
 
+        var runDirection = 0;
+
         if (Input.GetKey(KeyCode.W))
         {
             if (Input.GetKey(KeyCode.LeftShift))
@@ -38,7 +41,7 @@ public class PlayerController : MonoBehaviour
             {
                 _moveVector += transform.forward;
             }
-            
+            runDirection = 1;
         }
         if (Input.GetKey(KeyCode.D))
         {
@@ -50,7 +53,7 @@ public class PlayerController : MonoBehaviour
             {
                 _moveVector += transform.right;
             }
-            
+            runDirection = 3;
         }
         if (Input.GetKey(KeyCode.S))
         {
@@ -62,7 +65,7 @@ public class PlayerController : MonoBehaviour
             {
                 _moveVector -= transform.forward;
             }
-            
+            runDirection = 4;
         }
         if (Input.GetKey(KeyCode.A))
         {
@@ -74,8 +77,10 @@ public class PlayerController : MonoBehaviour
             {
                 _moveVector -= transform.right;
             }
-
+            runDirection = 4;
+            
         }
+        animator.SetInteger("Run direction", runDirection);
     }
     private void JumpUpdate()
     {
