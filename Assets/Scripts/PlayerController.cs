@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
             {
                 _moveVector -= transform.forward;
             }
-            runDirection = 4;
+            runDirection = 2;
         }
         if (Input.GetKey(KeyCode.A))
         {
@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && _characterController.isGrounded)
         {
             _fallVelocity = -jumpForce;
-
+            animator.SetTrigger("jump");
         }
     }
 
