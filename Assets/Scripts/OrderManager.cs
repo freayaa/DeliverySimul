@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class OrderManager : MonoBehaviour
 {
@@ -9,8 +10,15 @@ public class OrderManager : MonoBehaviour
     public TextMeshProUGUI takeOrderText;
     public TextMeshProUGUI deliveredOrdersText;
 
+    public List<Transform> points;
+
     private bool hasOrder = false;
     private int deliveredOrders = 0;
+
+    private void Start()
+    {
+        Vector3 spawnPosition = points[Random.Range(0, points.Count)].position;
+    }
 
     private void Update()
     {
