@@ -14,7 +14,7 @@ public class CameraRotations : MonoBehaviour
     public float minAngle;
     public float maxAngle;
     public float RotationSpeed;
-    
+
     private void Update()
     {
         var newAngleY = transform.localEulerAngles.y + Time.deltaTime * RotationSpeed * Input.GetAxis("Mouse X");
