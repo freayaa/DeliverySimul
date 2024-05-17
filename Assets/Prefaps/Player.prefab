@@ -3166,7 +3166,6 @@ GameObject:
   - component: {fileID: 7818967215753746603}
   - component: {fileID: 5633425512429146261}
   - component: {fileID: 6352679575572224570}
-  - component: {fileID: 2361362819569190878}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3257,23 +3256,6 @@ MonoBehaviour:
   minAngle: -35
   maxAngle: 50
   RotationSpeed: 500
---- !u!114 &2361362819569190878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6779546413932721836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6611b3b5fc6e6eb40b9aeb6214fb8881, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  primaCollider: {fileID: 0}
-  sdachaCollider: {fileID: 0}
-  takeOrderText: {fileID: 8213639433758196444}
-  deliveredOrdersText: {fileID: 7080794700859470457}
-  points: []
 --- !u!1 &6949341665396219837
 GameObject:
   m_ObjectHideFlags: 0

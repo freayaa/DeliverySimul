@@ -1,51 +1,60 @@
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class OrderManager : MonoBehaviour
 {
-    public GameObject primaCollider;
-    public GameObject sdachaCollider;
-    public TextMeshProUGUI takeOrderText;
-    public TextMeshProUGUI deliveredOrdersText;
+    public GameObject TakeDownArea;
+    public GameObject TakeUpArea;
+    public int DeliveriesCompleted = 0;
+    public bool IsBusy = false;
+    public List<Transform> Points;
 
-    public List<Transform> points;
-
-    private bool hasOrder = false;
-    private int deliveredOrders = 0;
+    public GameObject ActivePickUpPoint;
+    public GameObject ActivePickDownPoint;
 
     private void Start()
     {
-        Vector3 spawnPosition = points[Random.Range(0, points.Count)].position;
+        CreateNewOrder();
     }
 
-    private void Update()
+    public void CompleteDelivery()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (IsBusy)
         {
-            if (primaCollider.GetComponent<Collider>().bounds.Intersects(transform.GetComponent<Collider>().bounds) && !hasOrder)
-            {
-                TakeOrder();
-            }
-            else if (sdachaCollider.GetComponent<Collider>().bounds.Intersects(transform.GetComponent<Collider>().bounds) && hasOrder)
-            {
-                DeliverOrder();
-            }
+            DeliveriesCompleted++;
+            IsBusy = false;
+            Destroy(ActivePickUpPoint);
+            Destroy(ActivePickDownPoint);
+            CreateNewOrder();
         }
     }
 
-    private void TakeOrder()
+    public void CreateNewOrder()
     {
-        hasOrder = true;
-        takeOrderText.text = "Заказ взят";
+        Vector3 pickUpPointPosition = CreateNewPoint();
+
+        ActivePickUpPoint = Instantiate(TakeUpArea, pickUpPointPosition, Quaternion.identity);
+
+        Vector3 deliveryPointPosition = CreateNewPoint();
+
+        while (deliveryPointPosition == pickUpPointPosition)
+        {
+            deliveryPointPosition = CreateNewPoint();
+        }
+
+        ActivePickDownPoint = Instantiate(TakeDownArea, deliveryPointPosition, Quaternion.identity);
     }
 
-    private void DeliverOrder()
+    public Vector3 CreateNewPoint()
     {
-        takeOrderText.text = "Заказ сдан";
-        hasOrder = false;
-        deliveredOrders++;
-        deliveredOrdersText.text = $"Сдано заказов: {deliveredOrders}";
+        return Points[Random.Range(0, Points.Count)].position;
+    }
+
+    public void PickUpNewDelivery()
+    {
+        if (IsBusy == false)
+        {
+            IsBusy = true;
+        }
     }
 }
