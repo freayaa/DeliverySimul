@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI _scaledTimer;
-    [SerializeField] TextMeshProUGUI _unscaledTimer;
-
     [SerializeField] GameObject _pausePanel;
 
     bool _isPaused = false;
@@ -20,10 +17,12 @@ public class Pause : MonoBehaviour
             if (_isPaused)
             {
                 ResumeGame();
+                AudioListener.pause = false;
             }
             else
             {
                 PauseGame();
+                AudioListener.pause = true;
             }
         }
 
@@ -36,8 +35,6 @@ public class Pause : MonoBehaviour
         _scaledTime += Time.deltaTime;
         _unscaledTime += Time.unscaledDeltaTime;
 
-        //_scaledTimer.text = "Scaled Time: " + _scaledTime.ToString("F2");
-       // _unscaledTimer.text = "Unscaled Time: " + _unscaledTime.ToString("F2");
     }
 
     public void PauseGame()
@@ -52,6 +49,7 @@ public class Pause : MonoBehaviour
         _pausePanel.SetActive(false);
         Time.timeScale = 1;
         _isPaused = false;
+        AudioListener.pause = false;
     }
 
     public void MainMenuButton()
@@ -59,5 +57,6 @@ public class Pause : MonoBehaviour
         Time.timeScale = 1;
         _isPaused = false;
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        AudioListener.pause = false;
     }
 }
