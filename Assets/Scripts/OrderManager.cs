@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class OrderManager : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class OrderManager : MonoBehaviour
     public GameObject ActivePickUpPoint;
     public GameObject ActivePickDownPoint;
 
+
+    public TextMeshProUGUI ComplitOrderTXT;  //Показывает сколько заказов сдано
+    //public TextMeshPro ;
+
     private void Start()
     {
         CreateNewOrder();
@@ -23,6 +28,7 @@ public class OrderManager : MonoBehaviour
         {
             DeliveriesCompleted++;
             IsBusy = false;
+            ComplitOrderTXT.text = $"Сдано заказов: {DeliveriesCompleted}";
             Destroy(ActivePickUpPoint);
             Destroy(ActivePickDownPoint);
             CreateNewOrder();

@@ -1,5 +1,7 @@
-
 using UnityEngine;
+
+
+// Sdacha zakaza
 
 public class TakeDownArea : MonoBehaviour
 {

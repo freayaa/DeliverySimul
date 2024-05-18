@@ -1,5 +1,7 @@
-
 using UnityEngine;
+
+
+// Priem zakaza
 
 public class TakeUpArea : MonoBehaviour
 {
@@ -17,5 +19,6 @@ public class TakeUpArea : MonoBehaviour
             UP.PickUpNewDelivery(); //область приёма
         }
     }
+
 }
 //UP.PickUpNewDelivery(); //область приёма
