@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI _scaledTimer;
-    [SerializeField] TextMeshProUGUI _unscaledTimer;
-
     [SerializeField] GameObject _pausePanel;
 
     bool _isPaused = false;
@@ -38,8 +35,6 @@ public class Pause : MonoBehaviour
         _scaledTime += Time.deltaTime;
         _unscaledTime += Time.unscaledDeltaTime;
 
-        //_scaledTimer.text = "Scaled Time: " + _scaledTime.ToString("F2");
-       // _unscaledTimer.text = "Unscaled Time: " + _unscaledTime.ToString("F2");
     }
 
     public void PauseGame()

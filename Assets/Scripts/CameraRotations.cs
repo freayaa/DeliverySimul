@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 public class CameraRotations : MonoBehaviour
 {
+    [SerializeField] GameObject _Tabpanel;
+    bool _isTAB = false;
+
     public GameObject Can;
 
     public Transform CameraAxisTransform;
@@ -12,6 +15,7 @@ public class CameraRotations : MonoBehaviour
     public float minAngle;
     public float maxAngle;
     public float RotationSpeed;
+
 
     private void Update()
     {
@@ -28,9 +32,35 @@ public class CameraRotations : MonoBehaviour
 
         CursorLOcked();
         Sensivity();
-        
+        TabPanel();
     }
 
+    private void TabPanel()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (_isTAB)
+            {
+                TABOFF();
+            }
+            else
+            {
+                TABON();
+            }
+            CursorLOcked();
+        }
+        
+    }
+    private void TABON()
+    {
+        _Tabpanel.SetActive(true);
+        _isTAB = true;
+    }
+    private void TABOFF()
+    {
+        _Tabpanel.SetActive(false);
+        _isTAB = false;
+    }
     private void CursorLOcked()
     {
         if (Can.gameObject.activeSelf)
