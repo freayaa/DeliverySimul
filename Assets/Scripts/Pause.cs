@@ -17,12 +17,12 @@ public class Pause : MonoBehaviour
             if (_isPaused)
             {
                 ResumeGame();
-                AudioListener.pause = false;
+                //AudioListener.pause = false;
             }
             else
             {
                 PauseGame();
-                AudioListener.pause = true;
+                //AudioListener.pause = true;
             }
         }
 
@@ -49,7 +49,7 @@ public class Pause : MonoBehaviour
         _pausePanel.SetActive(false);
         Time.timeScale = 1;
         _isPaused = false;
-        AudioListener.pause = false;
+        //AudioListener.pause = false;
     }
 
     public void MainMenuButton()
@@ -57,6 +57,6 @@ public class Pause : MonoBehaviour
         Time.timeScale = 1;
         _isPaused = false;
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
-        AudioListener.pause = false;
+        //AudioListener.pause = false;
     }
 }

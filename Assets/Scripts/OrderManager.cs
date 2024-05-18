@@ -13,9 +13,11 @@ public class OrderManager : MonoBehaviour
     public GameObject ActivePickUpPoint;
     public GameObject ActivePickDownPoint;
 
+    public float money = 1;
 
     public TextMeshProUGUI ComplitOrderTXT;  //Показывает сколько заказов сдано
-    //public TextMeshPro ;
+    public TextMeshProUGUI MoneyNum; // deneg zarabotano
+    public TextMeshProUGUI DeliverOrder;
 
     private void Start()
     {
@@ -28,10 +30,16 @@ public class OrderManager : MonoBehaviour
         {
             DeliveriesCompleted++;
             IsBusy = false;
+
             ComplitOrderTXT.text = $"Сдано заказов: {DeliveriesCompleted}";
+            MoneyNum.text = $"{money} рублей";
             Destroy(ActivePickUpPoint);
             Destroy(ActivePickDownPoint);
+
             CreateNewOrder();
+
+            money += 130;
+            DeliverOrder.text = "Вы сдали заказ";
         }
     }
 
@@ -61,6 +69,7 @@ public class OrderManager : MonoBehaviour
         if (IsBusy == false)
         {
             IsBusy = true;
+            DeliverOrder.text = "Вы взяли заказ";
         }
     }
 }

@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,6 +11,10 @@ public class PlayerController : MonoBehaviour
 
     public float RunSpeed;
     public Animator animator;
+
+    public Image StaminBar;
+    public float Stamina, MaxStamina;
+    public float RunCoast;
 
     private float _fallVelocity = 0;
     private Vector3 _moveVector;
@@ -36,6 +43,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 _moveVector += transform.forward * RunSpeed;
+                StmaUp();
             }
             else
             {
@@ -48,6 +56,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 _moveVector += transform.right * RunSpeed;
+                StmaUp();
             }
             else
             {
@@ -60,6 +69,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 _moveVector -= transform.forward * RunSpeed;
+                StmaUp();
             }
             else
             {
@@ -72,6 +82,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 _moveVector -= transform.right * RunSpeed;
+                StmaUp();
             }
             else
             {
@@ -82,6 +93,14 @@ public class PlayerController : MonoBehaviour
         }
         animator.SetInteger("Run direction", runDirection);
     }
+
+    private void StmaUp()
+    {
+        Stamina -= RunCoast * Time.deltaTime;
+        if (Stamina < 0) Stamina = 0;
+        StaminBar.fillAmount = Stamina / MaxStamina;
+    }
+
     private void JumpUpdate()
     {
         if (Input.GetKey(KeyCode.Space) && _characterController.isGrounded)

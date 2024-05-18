@@ -21,21 +21,9 @@ public class TakeUpArea : MonoBehaviour
         if (Input.GetKey(KeyCode.E))
         {
             UP.PickUpNewDelivery(); //область приёма
-            ON();
         }
     }
-    private void OnTriggerExit(Collider other)
-    {
-        OFF();
-    }
-    public void ON()
-    {
-        _order.gameObject.SetActive(true);
-    }
-    public void OFF()
-    {
-        _order.gameObject.SetActive(false);
-    }
+    
 
 }
 //UP.PickUpNewDelivery(); //область приёма

@@ -16,7 +16,7 @@ public class TakeDownArea : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E))
         {
-            Down.CompleteDelivery();// область сдачи заказа // Либо CompleteDelivery если это область сдачи заказа
+            Down.CompleteDelivery();// область сдачи заказа
         }
     }
 }
