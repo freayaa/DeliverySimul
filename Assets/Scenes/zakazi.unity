@@ -531,7 +531,7 @@ PrefabInstance:
     - target: {fileID: 1965856511930127157, guid: 8dd8ab061df465847a995c4d205bbc5c, type: 3}
       propertyPath: _order
       value: 
-      objectReference: {fileID: 992618718}
+      objectReference: {fileID: 0}
     - target: {fileID: 9035422414118899729, guid: 8dd8ab061df465847a995c4d205bbc5c, type: 3}
       propertyPath: m_Name
       value: TakeUpArea
@@ -549,6 +549,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5810295895187926207, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810295895187926207, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5810295895187926207, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6479246537385452602, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -577,6 +589,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7818967215753746603, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
+      propertyPath: RunSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818967215753746603, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
+      propertyPath: ChargeRate
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7948657531895573931, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
       propertyPath: m_SizeDelta.x
       value: 333.7
@@ -588,6 +608,14 @@ PrefabInstance:
     - target: {fileID: 7948657531895573931, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -188
+      objectReference: {fileID: 0}
+    - target: {fileID: 7976214178976966173, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7976214178976966173, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9207478141489727182, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -637,17 +665,6 @@ PrefabInstance:
 --- !u!114 &954262525 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8517778650100555719, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
-  m_PrefabInstance: {fileID: 954262524}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &992618718 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7639788282418851079, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
   m_PrefabInstance: {fileID: 954262524}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

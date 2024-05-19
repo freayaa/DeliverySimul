@@ -1,7 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
-using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,13 +10,17 @@ public class PlayerController : MonoBehaviour
     public float RunSpeed;
     public Animator animator;
 
-    public Image StaminBar;
-    public float Stamina, MaxStamina;
+    public float Stamina = 100, MaxStamina = 100;
     public float RunCoast;
+    public RectTransform valuerectTransform;
+    public float ChargeRate;
+
+    bool StamRun = true;
 
     private float _fallVelocity = 0;
     private Vector3 _moveVector;
     private CharacterController _characterController;
+    private Coroutine _recharge;
 
     void Start()
     {
@@ -31,7 +33,6 @@ public class PlayerController : MonoBehaviour
         MovementUpdate();
         JumpUpdate();
     }
-
     private void MovementUpdate()
     {
         _moveVector = Vector3.zero;
@@ -40,23 +41,27 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (StamRun == true && (Input.GetKey(KeyCode.LeftShift)))
             {
-                _moveVector += transform.forward * RunSpeed;
-                StmaUp();
+                    _moveVector += transform.forward * RunSpeed;
+                    Recharge();
+                    StmaUp();
+                // сюда бег
             }
             else
             {
-                _moveVector += transform.forward;
+                    _moveVector += transform.forward;
             }
             runDirection = 1;
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) )
         {
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (StamRun == true && (Input.GetKey(KeyCode.LeftShift)))
             {
-                _moveVector += transform.right * RunSpeed;
-                StmaUp();
+                    _moveVector += transform.right * RunSpeed;
+                    Recharge();
+                    StmaUp();
+                // сюда бег
             }
             else
             {
@@ -64,12 +69,14 @@ public class PlayerController : MonoBehaviour
             }
             runDirection = 3;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) )
         {
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (StamRun == true && (Input.GetKey(KeyCode.LeftShift)))
             {
-                _moveVector -= transform.forward * RunSpeed;
-                StmaUp();
+                    _moveVector -= transform.forward * RunSpeed;
+                    Recharge();
+                    StmaUp();
+                // сюда бег
             }
             else
             {
@@ -79,26 +86,55 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.A))
         {
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (StamRun == true && (Input.GetKey(KeyCode.LeftShift)))
             {
-                _moveVector -= transform.right * RunSpeed;
-                StmaUp();
+                    _moveVector -= transform.right * RunSpeed;
+                    Recharge();
+                    StmaUp();
+                // сюда бег
             }
             else
             {
                 _moveVector -= transform.right;
             }
             runDirection = 4;
-            
         }
         animator.SetInteger("Run direction", runDirection);
     }
-
     private void StmaUp()
     {
         Stamina -= RunCoast * Time.deltaTime;
-        if (Stamina < 0) Stamina = 0;
-        StaminBar.fillAmount = Stamina / MaxStamina;
+        if (Stamina < 0)
+        {
+            StamRun = false;
+            Stamina = 0;
+        }
+        valuerectTransform.anchorMax = new Vector2(Stamina / MaxStamina, 1);
+        Recharge();
+    }
+    private void Recharge()
+    {
+        if (_recharge != null) StopCoroutine(_recharge);
+        _recharge = StartCoroutine(RechargeStamina());
+    }
+
+    private IEnumerator RechargeStamina()
+    {
+        yield return new WaitForSeconds(1f);
+
+        while (Stamina < MaxStamina)
+        {
+            Stamina += ChargeRate / 10f;
+
+            if (Stamina > MaxStamina)
+            {
+                Stamina = MaxStamina;
+                StamRun = true;
+            }
+
+            valuerectTransform.anchorMax = new Vector2(Stamina / MaxStamina, 1);
+            yield return new WaitForSeconds(.1f);
+        }
     }
 
     private void JumpUpdate()
