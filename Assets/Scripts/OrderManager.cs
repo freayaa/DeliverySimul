@@ -17,7 +17,7 @@ public class OrderManager : MonoBehaviour
 
     public TextMeshProUGUI ComplitOrderTXT;  //Показывает сколько заказов сдано
     public TextMeshProUGUI MoneyNum; // deneg zarabotano
-    public TextMeshProUGUI DeliverOrder;
+    public TextMeshProUGUI DeliverOrderTXT;
 
     private void Start()
     {
@@ -38,8 +38,8 @@ public class OrderManager : MonoBehaviour
 
             CreateNewOrder();
 
-            money += 130;
-            DeliverOrder.text = "Вы сдали заказ";
+            money += Random.Range(100,190);
+            DeliverOrderTXT.text = "Вы сдали заказ";
         }
     }
 
@@ -69,7 +69,7 @@ public class OrderManager : MonoBehaviour
         if (IsBusy == false)
         {
             IsBusy = true;
-            DeliverOrder.text = "Вы взяли заказ";
+            DeliverOrderTXT.text = "Вы взяли заказ";
         }
     }
 }

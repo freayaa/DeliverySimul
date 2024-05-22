@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2941859915113560754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 634839225730286133}
+  - component: {fileID: 4608500521774373864}
+  m_Layer: 0
+  m_Name: DeliveryObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &634839225730286133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2941859915113560754}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4608500521774373864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2941859915113560754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6611b3b5fc6e6eb40b9aeb6214fb8881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TakeDownArea: {fileID: 1524560471195150365, guid: 772248e3c2bb97440853b765bf11520b, type: 3}
+  TakeUpArea: {fileID: 9035422414118899729, guid: 8dd8ab061df465847a995c4d205bbc5c, type: 3}
+  DeliveriesCompleted: 0
+  IsBusy: 0
+  Points:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ActivePickUpPoint: {fileID: 0}
+  ActivePickDownPoint: {fileID: 0}
+  money: 130
+  ComplitOrderTXT: {fileID: 0}
+  MoneyNum: {fileID: 0}
+  DeliverOrder: {fileID: 0}

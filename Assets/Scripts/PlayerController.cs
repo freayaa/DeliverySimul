@@ -44,9 +44,9 @@ public class PlayerController : MonoBehaviour
             if (StamRun == true && (Input.GetKey(KeyCode.LeftShift)))
             {
                     _moveVector += transform.forward * RunSpeed;
-                    Recharge();
+                    //Recharge();
                     StmaUp();
-                // сюда бег
+                // сюда анимацию бега
             }
             else
             {
@@ -59,9 +59,9 @@ public class PlayerController : MonoBehaviour
             if (StamRun == true && (Input.GetKey(KeyCode.LeftShift)))
             {
                     _moveVector += transform.right * RunSpeed;
-                    Recharge();
+                    //Recharge();
                     StmaUp();
-                // сюда бег
+                // сюда анимацию бега
             }
             else
             {
@@ -74,9 +74,9 @@ public class PlayerController : MonoBehaviour
             if (StamRun == true && (Input.GetKey(KeyCode.LeftShift)))
             {
                     _moveVector -= transform.forward * RunSpeed;
-                    Recharge();
+                    //Recharge();
                     StmaUp();
-                // сюда бег
+                // сюда анимацию бега
             }
             else
             {
@@ -89,9 +89,9 @@ public class PlayerController : MonoBehaviour
             if (StamRun == true && (Input.GetKey(KeyCode.LeftShift)))
             {
                     _moveVector -= transform.right * RunSpeed;
-                    Recharge();
+                    //Recharge();
                     StmaUp();
-                // сюда бег
+                // сюда анимацию бега
             }
             else
             {
@@ -128,8 +128,8 @@ public class PlayerController : MonoBehaviour
 
             if (Stamina > MaxStamina)
             {
-                Stamina = MaxStamina;
                 StamRun = true;
+                Stamina = MaxStamina;
             }
 
             valuerectTransform.anchorMax = new Vector2(Stamina / MaxStamina, 1);
