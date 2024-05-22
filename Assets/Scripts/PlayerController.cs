@@ -109,7 +109,6 @@ public class PlayerController : MonoBehaviour
         {
             StamRun = false;
             Stamina = 0;
-            Debug.Log("Восстановление начато");
         }
         valuerectTransform.anchorMax = new Vector2(Stamina / MaxStamina, 1);
         Recharge();
@@ -132,8 +131,6 @@ public class PlayerController : MonoBehaviour
             {
                 StamRun = true;
                 Stamina = MaxStamina;
-
-                Debug.Log("Стамина востановлена");
             }
 
             valuerectTransform.anchorMax = new Vector2(Stamina / MaxStamina, 1);
