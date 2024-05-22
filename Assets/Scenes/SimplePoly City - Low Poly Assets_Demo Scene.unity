@@ -2967,12 +2967,16 @@ PrefabInstance:
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7818967215753746603, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
+      propertyPath: RunCoast
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818967215753746603, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
       propertyPath: RunSpeed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7818967215753746603, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
       propertyPath: ChargeRate
-      value: 25
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7818967215753746603, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
       propertyPath: MaxStamina

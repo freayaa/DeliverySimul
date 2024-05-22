@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
     public float RunSpeed;
     public Animator animator;
 
-    public float Stamina = 100, MaxStamina = 100;
+    public float Stamina = 100;
+    public float MaxStamina = 100;
     public float RunCoast;
     public RectTransform valuerectTransform;
     public float ChargeRate;
@@ -108,6 +109,7 @@ public class PlayerController : MonoBehaviour
         {
             StamRun = false;
             Stamina = 0;
+            Debug.Log("Восстановление начато");
         }
         valuerectTransform.anchorMax = new Vector2(Stamina / MaxStamina, 1);
         Recharge();
@@ -125,11 +127,13 @@ public class PlayerController : MonoBehaviour
         while (Stamina < MaxStamina)
         {
             Stamina += ChargeRate / 10f;
-
+            Debug.Log("1");
             if (Stamina > MaxStamina)
             {
                 StamRun = true;
                 Stamina = MaxStamina;
+
+                Debug.Log("Стамина востановлена");
             }
 
             valuerectTransform.anchorMax = new Vector2(Stamina / MaxStamina, 1);

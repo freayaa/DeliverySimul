@@ -2775,11 +2775,11 @@ MonoBehaviour:
   Speed: 5
   RunSpeed: 4
   animator: {fileID: 8051898540937722045}
-  Stamina: 200
-  MaxStamina: 200
-  RunCoast: 25
+  Stamina: 100
+  MaxStamina: 100
+  RunCoast: 20
   valuerectTransform: {fileID: 8327899204677370392}
-  ChargeRate: 25
+  ChargeRate: 10
 --- !u!143 &5633425512429146261
 CharacterController:
   m_ObjectHideFlags: 0
