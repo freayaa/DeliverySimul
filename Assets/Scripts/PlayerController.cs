@@ -1,8 +1,10 @@
 using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : SOUNDS
 {
+
+
     public float gravity = 9.8f;
     public float jumpForce;
     public float Speed;
@@ -26,7 +28,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
-        
+        PlaySound(sounds[2]);
     }
 
     private void Update()
@@ -44,14 +46,17 @@ public class PlayerController : MonoBehaviour
         {
             if (StamRun == true && (Input.GetKey(KeyCode.LeftShift)))
             {
-                    _moveVector += transform.forward * RunSpeed;
-                    //Recharge();
-                    StmaUp();
+                _moveVector += transform.forward * RunSpeed;
+                //Recharge();
+                StmaUp();
                 // сюда анимацию бега
+                // звук бега
             }
             else
             {
-                    _moveVector += transform.forward;
+                _moveVector += transform.forward;
+                //runDirection = 1;
+                //PlaySound(sounds[1]);
             }
             runDirection = 1;
         }
@@ -126,7 +131,6 @@ public class PlayerController : MonoBehaviour
         while (Stamina < MaxStamina)
         {
             Stamina += ChargeRate / 10f;
-            Debug.Log("1");
             if (Stamina > MaxStamina)
             {
                 StamRun = true;

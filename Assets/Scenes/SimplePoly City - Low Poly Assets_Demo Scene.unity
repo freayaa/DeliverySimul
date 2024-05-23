@@ -2958,6 +2958,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 18886345440996307, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6779546413932721836, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2982,6 +2986,14 @@ PrefabInstance:
       propertyPath: MaxStamina
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 7818967215753746603, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
+      propertyPath: sounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7818967215753746603, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
+      propertyPath: sounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 70768771b850d624190d7540458abcf1, type: 3}
     - target: {fileID: 9207478141489727182, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17.53

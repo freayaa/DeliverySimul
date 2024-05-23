@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class OrderManager : MonoBehaviour
+public class OrderManager : SOUNDS
 {
     public GameObject TakeDownArea;
     public GameObject TakeUpArea;
@@ -40,6 +40,7 @@ public class OrderManager : MonoBehaviour
 
             money += Random.Range(100,190);
             DeliverOrderTXT.text = "Вы сдали заказ";
+            PlaySound(sounds[0]);
         }
     }
 
@@ -70,6 +71,7 @@ public class OrderManager : MonoBehaviour
         {
             IsBusy = true;
             DeliverOrderTXT.text = "Вы взяли заказ";
+            PlaySound(sounds[1]);
         }
     }
 }
