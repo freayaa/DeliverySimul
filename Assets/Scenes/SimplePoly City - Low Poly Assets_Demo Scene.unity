@@ -3375,6 +3375,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 357840753}
   m_SourcePrefab: {fileID: 100100000, guid: b8ee657c6800ab849bb30b4375d02323, type: 3}
+--- !u!114 &110335838 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1048455854111223084, guid: a6f9e84e09cb3464a85088aae367c7e6, type: 3}
+  m_PrefabInstance: {fileID: 94830760}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &110815194 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 2509cc5763ca17f4598bf61fd585a93e, type: 3}
@@ -6543,8 +6554,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4608500521774373864, guid: 0c991fab811eb0042bcd3044d79f50f1, type: 3}
       propertyPath: money
-      value: 130
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4608500521774373864, guid: 0c991fab811eb0042bcd3044d79f50f1, type: 3}
+      propertyPath: ostTXT
+      value: 
+      objectReference: {fileID: 110335838}
     - target: {fileID: 4608500521774373864, guid: 0c991fab811eb0042bcd3044d79f50f1, type: 3}
       propertyPath: MoneyNum
       value: 
