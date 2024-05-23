@@ -24,6 +24,7 @@ public class PlayerController : SOUNDS
     private Vector3 _moveVector;
     private CharacterController _characterController;
     private Coroutine _recharge;
+    private int _runDirection;
 
     void Start()
     {
@@ -39,8 +40,7 @@ public class PlayerController : SOUNDS
     private void MovementUpdate()
     {
         _moveVector = Vector3.zero;
-
-        var runDirection = 0;
+        _runDirection = 0;
 
         if (Input.GetKey(KeyCode.W))
         {
@@ -49,63 +49,66 @@ public class PlayerController : SOUNDS
                 _moveVector += transform.forward * RunSpeed;
                 //Recharge();
                 StmaUp();
+                _runDirection = 6;
                 // сюда анимацию бега
                 // звук бега
             }
             else
             {
                 _moveVector += transform.forward;
-                //runDirection = 1;
+                _runDirection = 1;
                 //PlaySound(sounds[1]);
             }
-            runDirection = 1;
         }
         if (Input.GetKey(KeyCode.D) )
         {
             if (StamRun == true && (Input.GetKey(KeyCode.LeftShift)))
             {
-                    _moveVector += transform.right * RunSpeed;
-                    //Recharge();
-                    StmaUp();
+                _moveVector += transform.right * RunSpeed;
+                //Recharge();
+                StmaUp();
+                _runDirection = 3;
                 // сюда анимацию бега
             }
             else
             {
                 _moveVector += transform.right;
+                _runDirection = 3;
             }
-            runDirection = 3;
         }
         if (Input.GetKey(KeyCode.S) )
         {
             if (StamRun == true && (Input.GetKey(KeyCode.LeftShift)))
             {
-                    _moveVector -= transform.forward * RunSpeed;
-                    //Recharge();
-                    StmaUp();
+                _moveVector -= transform.forward * RunSpeed;
+                //Recharge();
+                StmaUp();
+                _runDirection = 2;
                 // сюда анимацию бега
             }
             else
             {
                 _moveVector -= transform.forward;
+                _runDirection = 2;
             }
-            runDirection = 2;
         }
         if (Input.GetKey(KeyCode.A))
         {
             if (StamRun == true && (Input.GetKey(KeyCode.LeftShift)))
             {
-                    _moveVector -= transform.right * RunSpeed;
-                    //Recharge();
-                    StmaUp();
+                _moveVector -= transform.right * RunSpeed;
+                //Recharge();
+                StmaUp();
+                _runDirection = 4;
                 // сюда анимацию бега
             }
             else
             {
                 _moveVector -= transform.right;
+                _runDirection = 4;
             }
-            runDirection = 4;
         }
-        animator.SetInteger("Run direction", runDirection);
+        animator.SetInteger("Run direction", _runDirection);
     }
     private void StmaUp()
     {
@@ -131,9 +134,12 @@ public class PlayerController : SOUNDS
         while (Stamina < MaxStamina)
         {
             Stamina += ChargeRate / 10f;
-            if (Stamina > MaxStamina)
+            if (Stamina > 30)
             {
                 StamRun = true;
+            }
+            if(Stamina > MaxStamina)
+            {
                 Stamina = MaxStamina;
             }
 
@@ -146,8 +152,10 @@ public class PlayerController : SOUNDS
     {
         if (Input.GetKey(KeyCode.Space) && _characterController.isGrounded)
         {
+            _runDirection = 0;
+            _runDirection = 5;
             _fallVelocity = -jumpForce;
-            animator.SetTrigger("jump");
+            animator.SetInteger("Run direction", _runDirection);
         }
     }
 
