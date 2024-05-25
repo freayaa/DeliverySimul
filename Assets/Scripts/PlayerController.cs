@@ -1,9 +1,12 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerController : SOUNDS
 {
-
+    public Slider slidervolumemusic;
+    public float volume;
+    public AudioSource Audio;
 
     public float gravity = 9.8f;
     public float jumpForce;
@@ -36,6 +39,7 @@ public class PlayerController : SOUNDS
     {
         MovementUpdate();
         JumpUpdate();
+        //MusicVol();
     }
     private void MovementUpdate()
     {
@@ -47,66 +51,35 @@ public class PlayerController : SOUNDS
             if (StamRun == true && (Input.GetKey(KeyCode.LeftShift)))
             {
                 _moveVector += transform.forward * RunSpeed;
-                //Recharge();
                 StmaUp();
                 _runDirection = 6;
-                // сюда анимацию бега
-                // звук бега
             }
             else
             {
                 _moveVector += transform.forward;
                 _runDirection = 1;
-                //PlaySound(sounds[1]);
             }
         }
         if (Input.GetKey(KeyCode.D) )
         {
-            if (StamRun == true && (Input.GetKey(KeyCode.LeftShift)))
-            {
-                _moveVector += transform.right * RunSpeed;
-                //Recharge();
-                StmaUp();
-                _runDirection = 3;
-                // сюда анимацию бега
-            }
-            else
-            {
-                _moveVector += transform.right;
-                _runDirection = 3;
-            }
+
+            _moveVector += transform.right;
+            
+            _runDirection = 3;
         }
         if (Input.GetKey(KeyCode.S) )
         {
-            if (StamRun == true && (Input.GetKey(KeyCode.LeftShift)))
-            {
-                _moveVector -= transform.forward * RunSpeed;
-                //Recharge();
-                StmaUp();
-                _runDirection = 2;
-                // сюда анимацию бега
-            }
-            else
-            {
-                _moveVector -= transform.forward;
-                _runDirection = 2;
-            }
+
+            _moveVector -= transform.forward;
+            
+            _runDirection = 2;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            if (StamRun == true && (Input.GetKey(KeyCode.LeftShift)))
-            {
-                _moveVector -= transform.right * RunSpeed;
-                //Recharge();
-                StmaUp();
-                _runDirection = 4;
-                // сюда анимацию бега
-            }
-            else
-            {
-                _moveVector -= transform.right;
-                _runDirection = 4;
-            }
+
+            _moveVector -= transform.right;
+            
+            _runDirection = 4;
         }
         animator.SetInteger("Run direction", _runDirection);
     }
@@ -173,5 +146,10 @@ public class PlayerController : SOUNDS
         {
             _fallVelocity = 0;
         }
+    }
+    public void MusicVol()
+    {
+        volume = slidervolumemusic.value;
+        Audio.volume = volume;
     }
 }
