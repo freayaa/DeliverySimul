@@ -58,5 +58,6 @@ public class Pause : MonoBehaviour
         _isPaused = false;
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         //AudioListener.pause = false;
+        AudioListener.volume = 1;
     }
 }
